@@ -1,0 +1,6 @@
+--compilers ts-node/register
+--require source-map-support/register
+--require ./tests/setup/before.ts
+--full-trace
+--bail
+tests/**/*.test.ts
