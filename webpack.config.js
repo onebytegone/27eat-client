@@ -1,7 +1,9 @@
 'use strict';
 
-const path = require('path'),
-      pkg = require('./package.json');
+const webpack = require('webpack'),
+      path = require('path'),
+      pkg = require('./package.json'),
+      Dotenv = require('dotenv-webpack');
 
 function getFileNameFromPackageName(packageName) {
    const NAME_PARTS = packageName.split('/');
@@ -59,5 +61,10 @@ module.exports = function(env) {
             },
          ],
       },
+      plugins: [
+         new Dotenv({
+            path: path.resolve(__dirname, 'vars', (env.production ? 'prd.env' : 'dev.env')),
+         }),
+      ],
    };
 };

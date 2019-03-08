@@ -7,7 +7,13 @@
       <link rel="stylesheet" href="css/main.css">
    </head>
    <body>
-      <div id="app"></div>
+      <div id="app">
+         <router-link to="/">home</router-link>
+         <router-link to="/settings" v-if="isLoggedIn">settings</router-link>
+         <router-link to="/logout" v-if="isLoggedIn">logout</router-link>
+         <router-link to="/login" v-else>login</router-link>
+         <router-view/>
+      </div>
       <script src="js/27eat-client.js"></script>
    </body>
 </html>
